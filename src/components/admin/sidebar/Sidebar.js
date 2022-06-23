@@ -28,7 +28,7 @@ class Sidebar extends Component {
         <div className="sidebarWrapper">
           <div className="sidebarMenu">
             <ul className="sidebarList">
-              <Link to="/listcompany" className="link">
+              <Link to="/company" className="link">
                 <li className="sidebarListItem">
                   <Apartment className="sidebarIcon" />
                   Company Home
@@ -87,12 +87,6 @@ class Sidebar extends Component {
               </li>
             </ul>
           </div>
-        </div>
-        <div className="viewList">
-          {/* <Listcompany /> */}
-          {/* <Industry /> */}
-          {/* <StudentApply /> */}
-          <Department />
         </div>
       </div>
     );
