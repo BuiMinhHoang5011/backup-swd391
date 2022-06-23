@@ -1,0 +1,64 @@
+.listcompany {
+    font-size: 16px;
+    font-family: 'Source Sans Pro', sans-serif;
+    border: 1px solid rgba(216, 216, 216, 0.76);
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: 100%;
+}
+
+.search-box {
+    background: white;
+    height: 40px;
+    border-radius: 40px;
+    border: 1px solid rgba(196, 196, 196, 0.76);
+    margin-bottom: 40px;
+    margin-top: 20px;
+    width: 40%;
+}
+
+.search-btn {
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.search-btn:hover {
+    text-decoration: none;
+}
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: rgba(139, 139, 139, 0.457);
+    font-size: 16px;
+    line-height: 35px;
+    margin-left: 15px;
+    width: 80%;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: black;
+}
+
+.list-table {
+    background-color: white;
+}
+
+.btn-create button {
+    margin-top: 22px;
+    padding: 6px 10px 6px 10px;
+    margin-right: 40px;
+}
+
+.container-search {
+    display: flex;
+    justify-content: space-between;
+}
