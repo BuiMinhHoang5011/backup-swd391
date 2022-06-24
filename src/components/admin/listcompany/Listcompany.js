@@ -11,7 +11,7 @@ import { useState } from "react";
 import useModal from "../../../hook/useModal";
 import Modal from "../../modal/modal";
 import { history } from "../../../App";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useRef } from "react";
 
@@ -83,6 +83,7 @@ function Listcompany(props) {
       searchDataBussiness(value);
     }, 300);
   }
+  const history = useHistory();
   return (
     <div className="listcompany">
       <div
@@ -103,7 +104,11 @@ function Listcompany(props) {
           </a>
         </div>
         <div className="btn-create">
-          <button type="button" class="btn btn-success">
+          <button
+            onClick={() => history.push("./CreateCompany")}
+            type="button"
+            class="btn btn-success"
+          >
             Create Business
           </button>
         </div>
@@ -118,8 +123,8 @@ function Listcompany(props) {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Contact</th>
-                <th>IndustryId</th>
-                <th>SemesterId</th>
+                <th>Industry ID</th>
+                <th>Semester ID</th>
                 <th class="datatable-nosort">Action</th>
               </tr>
             </thead>

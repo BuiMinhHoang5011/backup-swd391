@@ -40,14 +40,16 @@ class Sidebar extends Component {
                   Student Apply
                 </li>
               </Link>
-              <li className="sidebarListItem">
-                <Bookmark className="sidebarIcon" />
-                Specialization
-              </li>
               <Link to="/semester" className="link">
                 <li className="sidebarListItem">
                   <BarChart className="sidebarIcon" />
                   Semester
+                </li>
+              </Link>
+              <Link to="/department" className="link">
+                <li className="sidebarListItem">
+                  <Bookmark className="sidebarIcon" />
+                  Specialization
                 </li>
               </Link>
             </ul>

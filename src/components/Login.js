@@ -20,6 +20,7 @@ const Login = () => {
     try {
       await logIn(email, password);
       navigate("/home");
+      // console.log("Thành Công 1");
     } catch (err) {
       setError(err.message);
     }
@@ -30,6 +31,7 @@ const Login = () => {
     try {
       await googleSignIn();
       navigate("/home");
+      // console.log("Thành công");
     } catch (error) {
       console.log(error.message);
     }

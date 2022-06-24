@@ -101,8 +101,9 @@ function StudentApply(props) {
                 <th>Student ID</th>
                 <th>Student Name</th>
                 <th>Email</th>
-                <th>BusinessName</th>
+                <th>Business Name</th>
                 <th>ApplyDate</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -116,6 +117,36 @@ function StudentApply(props) {
                       <td>{e.email} </td>
                       <td>{e.businessName}</td>
                       <td>{e.applyDate}</td>
+                      <td>
+                        <div class="dropdown">
+                          <a
+                            class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-toggle="dropdown"
+                          >
+                            <i class="dw dw-more"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                            {/* <a class="dropdown-item">
+                              <i class="dw dw-eye"></i> View Detail
+                            </a> */}
+
+                            <a
+                              class="dropdown-item"
+                              onClick={() => pushUpdateLayout(e.businessId, e)}
+                            >
+                              <i class="dw dw-edit2"></i> View Detail
+                            </a>
+                            {/* <a
+                              class="dropdown-item"
+                              onClick={() => deleteDataBusiness(e.businessId)}
+                            >
+                              <i class="dw dw-delete-3"></i> Delete
+                            </a> */}
+                          </div>
+                        </div>
+                      </td>
                     </tr>
                   );
                 })

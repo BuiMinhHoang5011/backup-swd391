@@ -71,7 +71,7 @@ function Department(props) {
         className="col-xs-4 col-sm-4 col-md-4 col-lg-4 container-search"
         style={{ width: "100%" }}
       >
-        <div className="search-box">
+        {/* <div className="search-box">
           <input
             className="search-txt"
             type="text"
@@ -83,7 +83,7 @@ function Department(props) {
           <a className="search-btn" href="#">
             <i className="fas fa-search" />
           </a>
-        </div>
+        </div> */}
         <div className="btn-create"></div>
       </div>
       <div className="list-table">
