@@ -1,6 +1,3 @@
-
-
-
 .newUserItem {
     width: 400px;
     display: flex;
@@ -45,7 +42,6 @@
     background-color: #fff;
     padding: 25px 30px;
     border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
 .container .title {
@@ -85,7 +81,7 @@ form .input-box span.details {
 
 .user-details .input-box input {
     height: 45px;
-    width: 100%;
+    width: 85%;
     outline: none;
     font-size: 16px;
     border-radius: 5px;
@@ -146,7 +142,7 @@ form .button {
 
 form .button input {
     height: 100%;
-    width: 100%;
+    width: 20%;
     border-radius: 5px;
     border: none;
     color: #fff;
@@ -155,12 +151,12 @@ form .button input {
     letter-spacing: ipx;
     cursor: pointer;
     transition: all 0.3s ease;
-    background: linear-gradient(135deg, #fdc830, #f37335);
+    background: linear-gradient(135deg, #0ca604, #08a727);
 }
 
 form .button input:hover {
     /* transform: scale(0.99); */
-    background: linear-gradient(-135deg, #fdc830, #f37335);
+    background: linear-gradient(-135deg, #08a727, #0ca604);
 }
 
 @media(max-width: 584px) {

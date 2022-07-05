@@ -1,8 +1,9 @@
 import React from "react";
+import "./createcompany.css";
 
 function CreateCompany() {
   return (
-    <div className="container">
+    <div className="container" style={{ padding: "0px 40px" }}>
       <div className="title">Create Bussiness</div>
       <div className="content">
         <form action="#">
@@ -59,14 +60,15 @@ function CreateCompany() {
               <span className="details">Address</span>{" "}
               <input type="text" placeholder="Enter Student Address" required />{" "}
             </div>
+            <div className="input-box">
+              <label>Active</label>
+              <select className="details" name="active" id="active">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
           </div>
-          <div className="newUserItem">
-            <label>Active</label>
-            <select className="newUserSelect" name="active" id="active">
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-          </div>
+
           <div className="button">
             {" "}
             <input type="submit" defaultValue="Create" />

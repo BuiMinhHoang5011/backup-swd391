@@ -18,7 +18,10 @@ import { createBrowserHistory } from "history";
 import Semester from "./components/admin/semester/Semester";
 import Industry from "./components/admin/industry/Industry";
 import StudentApply from "./components/admin/studentApply/StudentApply";
-import { Create } from "@material-ui/icons";
+import Business from "./components/business/sidebar/Business";
+import Jobpost from "./components/business/jobpost/Jobpost";
+import CreateStudentApply from "./components/admin/studentApply/CreateStudentApply";
+// import { Business, Create } from "@material-ui/icons";
 export const history = createBrowserHistory();
 function App() {
   return (
@@ -73,6 +76,12 @@ function App() {
         </Route>
         <Route path="/createcompany">
           <CreateCompany />
+        </Route>
+        <Route path="/createstudentapply">
+          <CreateStudentApply />
+        </Route>
+        <Route path="/jobpost">
+          <Jobpost />
         </Route>
       </Switch>
     </Router>

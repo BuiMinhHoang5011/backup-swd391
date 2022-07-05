@@ -1,6 +1,7 @@
 import React, { Component, useEffect } from "react";
 import axios from "axios";
 import {
+  createDataByPath,
   deleteDataByPath,
   getDataByPathTest,
   searchDataByPath,
@@ -9,42 +10,51 @@ import { useState } from "react";
 import useModal from "../../../hook/useModal";
 import Modal from "../../modal/modal";
 import { history } from "../../../App";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useRef } from "react";
-import "./studentApply.css";
 
-StudentApply.propTypes = {
+Jobpost.propTypes = {
   onSubmit: PropTypes.func,
 };
-StudentApply.defaultProps = {
+Jobpost.defaultProps = {
   onSubmit: null,
 };
-function StudentApply(props) {
-  const [stuApply, setStuApply] = useState(null);
+function Jobpost(props) {
+  const [business, setBusiness] = useState(null);
   useEffect(() => {
-    loadDataStudentApply();
+    loadDataBussiness();
   }, []);
 
-  async function loadDataStudentApply() {
-    const path = `api/v1/applys`;
+  async function loadDataBussiness() {
+    const path = `api/v1/job-post`;
     const res = await getDataByPathTest(path, "", "");
     console.log(res);
     if (res !== null && res !== undefined && res.status === 200) {
-      setStuApply(res.data);
+      setBusiness(res.data);
     }
   }
 
-  async function searchDataStudentApply(id) {
-    const path = `api/v1/applys`;
-    const res = await searchDataByPath(path, "", id);
-    console.log("id: ", id);
+  async function deleteDataBusiness(id) {
+    const path = `api/v1/businesses`;
+    const res = await deleteDataByPath(path, "", id);
+    console.log(res);
+    if (res !== null && res !== undefined && res.status === 200) {
+      loadDataBussiness();
+    }
+  }
+
+  async function searchDataBussiness(id) {
+    const path = `api/v1/businesses/Search`;
+    let data = `name=${id}`;
+    if (id === "") {
+      data = "";
+    }
+    const res = await getDataByPathTest(path, "", data);
     console.log("Search res: ", res.data);
-    id !== ""
-      ? res.data === ""
-        ? setStuApply(null)
-        : setStuApply([res.data])
-      : loadDataStudentApply();
+    if (res && res.status === 200) {
+      setBusiness(res.data);
+    }
   }
 
   async function pushUpdateLayout(id) {
@@ -52,20 +62,27 @@ function StudentApply(props) {
     window.location.reload();
   }
 
+  // const { onSubmit } = props;
   const [searchTerm, setSearchTerm] = useState("");
   const typingTimeoutRef = useRef(null);
 
   function handleSearchTermChange(e) {
     const value = e.target.value;
     setSearchTerm(value);
+    // if (!onSubmit) return;
     if (typingTimeoutRef.current) {
       clearTimeout(typingTimeoutRef.current);
     }
     typingTimeoutRef.current = setTimeout(() => {
       console.log("Value: ", value);
-      searchDataStudentApply(value);
+      // const formValues = {
+      //   searchTerm: value,
+      // };
+      // onSubmit(formValues);
+      searchDataBussiness(value);
     }, 300);
   }
+  const history = useHistory();
   return (
     <div className="listcompany">
       <div
@@ -87,14 +104,13 @@ function StudentApply(props) {
         </div>
         <div className="btn-create">
           <button
-            onClick={() => history.push("./CreateStudentApply")}
+            onClick={() => history.push("./CreateCompany")}
             type="button"
             class="btn btn-success"
           >
-            Create Student
+            Create Business
           </button>
         </div>
-        <div className="btn-create"></div>
       </div>
       <div className="list-table">
         <div class="pb-20">
@@ -102,25 +118,27 @@ function StudentApply(props) {
             <thead>
               <tr>
                 <th class="table-plus datatable-nosort">No</th>
-                <th>Student ID</th>
-                <th>Student Name</th>
+                <th>Business ID</th>
+                <th>Name</th>
                 <th>Email</th>
-                <th>Business Name</th>
-                <th>ApplyDate</th>
-                <th>Action</th>
+                <th>Contact</th>
+                <th>Industry ID</th>
+                <th>Semester ID</th>
+                <th class="datatable-nosort">Action</th>
               </tr>
             </thead>
             <tbody>
-              {stuApply ? (
-                stuApply.map((e, value) => {
+              {business ? (
+                business.map((e, value) => {
                   return (
                     <tr>
                       <td class="table-plus">{value + 1}</td>
-                      <td>{e.studentId}</td>
-                      <td>{e.studentName}</td>
-                      <td>{e.email} </td>
-                      <td>{e.businessName}</td>
-                      <td>{e.applyDate}</td>
+                      <td>{e.jobPositionId}</td>
+                      <td>{e.jobName}</td>
+                      <td>{e.detailWork} </td>
+                      <td>{e.salary}</td>
+                      <td>{e.workLocation}</td>
+                      <td>{e.amount}</td>
                       <td>
                         <div class="dropdown">
                           <a
@@ -164,4 +182,4 @@ function StudentApply(props) {
     </div>
   );
 }
-export default StudentApply;
+export default Jobpost;
